@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+{% load tz %}
+{% load static %}
+
+{% block title %}Causes{% endblock %}
+{% block email %}{{email}}{% endblock %}
+{% block since %}{{since|timezone:"Asia/Kolkata"}}{% endblock %}
+{% block amt %}{{amt}}{% endblock %}
+{% block content %}
+
+<!-- Causes jumbotron -->
+<div class="jumbotron text-center about" style="background-image: url({% static 'images/index/hand.jpg' %});">
+    <div class="container">
+        <h1>CAUSES</h1>
+        <h4>"Generosity consists not the sum given,<br>
+            But the manner in which it is bestowed"<br>
+            Mahatma Gandhi
+        </h4>
+    </div>
+</div>
+
+<!-- Buttons to show only the selected causes -->
+<div class="options text-center mb-4">
+    <button class="btn btn-primary mr-2 mb-1" type="button" onclick="causes_show('Orphans')">Orphans</button>
+    <button class="btn btn-primary mr-2 mb-1" type="button" onclick="causes_show('Widows')">Widows</button>
+    <button class="btn btn-primary mr-2 mb-1" type="button" onclick="causes_show('Old People')">Old People</button>
+</div>
+
+<!-- All causes displayed dynamically from database -->
+<section class="causes-section section-padding">
+    <div class="container-fluid text-center">
+        <div class="section-title-s2">
+            <span>#Causes</span>
+            <h2>All Causes</h2>
+        </div>
+        <div class="content-area causes-slider">
+            <div class="row no-gutters">
+                {% for cause in causes %}
+                <!-- Cause name -->
+                <div class="col-md-4 col-sm-6 col-12 p-4 inner acause {{cause.cause}}">
+                    <!-- Cause image -->
+                    <div class="img-holder">
+                        <img class="img-fluid" src="{{ cause.image }}" alt>
+                    </div>
+                    <!-- Cause details with link to donate -->
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar"
+                                    aria-valuenow="{% widthratio cause.amount_donated cause.amount_req 1 %}"
+                                    aria-valuemin="0" aria-valuemax="100"
+                                    style="max-width: {% widthratio cause.amount_donated cause.amount_req 100 %}%">
+                                </div>
+                            </div>
+                            {% if user.is_authenticated %}
+                            <h3><a href="donate?c={{cause.cause}}&n={{cause.ngo_name}}">{{cause.cause|upper}}</a></h3>
+                            {% else %}
+                            <h3><a onclick="alert('Click above and Login To Donate')">{{cause.cause|upper}}</a></h3>
+                            {% endif %}
+                            <h3 class="ngo-name">{{cause.ngo_name|upper}}</h3>
+                            <div class="goal-raised">
+                                <span>&#8377;{{cause.amount_donated}} raised of &#8377;{{cause.amount_req}}</span>
+                                {% if user.is_authenticated %}
+                                <a href="donate?c={{cause.cause}}&n={{cause.ngo_name}}" class="donate-btn">Donate</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

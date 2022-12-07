@@ -1,0 +1,191 @@
+<!-- extending the base and static files loading -->
+{% extends "base.html" %}
+{% load socialaccount %}
+{% load tz %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+{% block email %}{{email}}{% endblock %}
+{% block since %}{{since|timezone:"Asia/Kolkata"}}{% endblock %}
+{% block amt %}{{amt}}{% endblock %}
+{% block content %}
+
+<!--header starts-->
+<div class="jumbotron text-center about" style="background-image: url({% static 'images/index/hand.jpg' %});">
+    <div class="container">
+        <h1>Abhyudaya</h1>
+        <p>Donating to the causes you care about not only benefit the charities themselves,
+            it can be deeply rewarding for you too. Millions of people around the world give to charity on a
+            regular basis to support the causes they believe in, and to make the world a better place.</p>
+        <a href="causes">Donate Now <i class="fi flaticon-heart-1"></i></a>
+    </div>
+</div>
+<!-- header ends-->
+
+<!-- about section starts -->
+<section class="section-padding">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="section-title">
+                    <span>#About</span>
+                    <h2>Charity is a continuous process towards success and happiness</h2>
+                </div>
+                <a href="about">More about us</a>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <img class="img-fluid" src="{% static 'images/index/about-s3.jpg' %}">
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <br>
+                <p>Donation is a major act of goodwill. The feeling of helping
+                    others is hugely empowering and can make you feel happier and fulfilled.
+                    Research shows charity is great for the giver in many ways. It also makes you feel
+                    that you are a contributor to the universe around you. In other words, you have the ability
+                    to make a difference. We make a living by what we get, but we make a life by what we give.
+                    They say the happiest people are not those getting more, but those giving more. We do our best
+                    to simplify the donation process and support you while you help others.
+                    Together, we can find and spread happiness around us.
+                </p>
+                <h5></h5>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about section ends -->
+<hr>
+
+<!-- about section starts -->
+<section class="section-padding">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <br>
+                <p>Most of the people in need are originally from well to do families. They have never begged before in their lives. 
+                    By providing them with the opportunity to work for their living, we enable them to live out their lives with dignity. 
+                    We manufacturing hand made agarbattis using flowers from religious sites with the help of the needy. All profits are used for the benefit of the elderly. 
+                </p>
+                <h5></h5>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="section-title">
+                    <span>#</span>
+                    <h2>Providing Dignity to the Respected</h2>
+                </div>
+                <a href="contact">For orders</a>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <img class="img-fluid" src="{% static 'images/index/about-s4.jpg' %}">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about section ends -->
+<hr>
+
+<!-- target section starts -->
+<section class="section-padding" id="about">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-12 col-md-5">
+                <img class="b2w img-fluid" src="{% static 'images/index/target.jpg' %}" alt>
+            </div>
+            <div class="col-sm-12 col-md-7">
+                <div class="section-title">
+                    <br>
+                    <span>#Target</span>
+                    <h2>We have reached so far!</h2>
+                </div>
+                <div class="content">
+                    <p>While the amount of donors are on a rise, especially in the past two months,
+                        we aim to inculcate a 'Charity Culture'. You can involve your loved ones,
+                        support an NGO and cause of your choice. The continuous effort is to encourage
+                        you to donate regularly, may it be every week or month.</p>
+                    <div class="goal-raised row no-gutter">
+                        <div class="col-6">
+                            <span>Donation goal </span>
+                            <h3>&#8377;{{tot_req}}</h3>
+                        </div>
+                        <div class="col-6">
+                            <span>Donation raised </span>
+                            <h3>&#8377;{{tot_don}}</h3>
+                        </div>
+                    </div>
+                    <a href="causes">
+                        <button class="btn btn-outline-danger" type="button"><i class="fi flaticon-like"></i>
+                            Donate Now</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- target section ends -->
+
+<hr>
+
+<!-- causes section starts -->
+<section class="causes-section section-padding">
+    <div class="container-fluid text-center">
+        <div class="section-title-s2">
+            <span>#Causes</span>
+            <h2>Top Causes</h2>
+        </div>
+        <div class="content-area causes-slider">
+            <div class="row no-gutters">
+                {% for cause in causes %}
+                <div class="col-md-4 col-sm-6 col-12 p-4 inner acause {{cause.cause}}">
+                    <div class="img-holder">
+                        <img class="img-fluid" src="{{ cause.image }}" alt>
+                    </div>
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar"
+                                    aria-valuenow="{% widthratio cause.amount_donated cause.amount_req 1 %}"
+                                    aria-valuemin="0" aria-valuemax="100"
+                                    style="max-width: {% widthratio cause.amount_donated cause.amount_req 100 %}%">
+                                </div>
+                            </div>
+                            {% if user.is_authenticated %}
+                            <h3><a href="donate?c={{cause.cause}}&n={{cause.ngo_name}}">{{cause.cause|upper}}</a></h3>
+                            {% else %}
+                            <h3><a>{{cause.cause|upper}}</a></h3>
+                            {% endif %}
+                            <h3 class="ngo-name">{{cause.ngo_name|upper}}</h3>
+                            <div class="goal-raised">
+                                <span>&#8377;{{cause.amount_donated}} raised of &#8377;{{cause.amount_req}}</span>
+                                {% if user.is_authenticated %}
+                                <a href="donate?c={{cause.cause}}&n={{cause.ngo_name}}" class="donate-btn">Donate</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- causes section ends -->
+
+<!-- NGO register section starts -->
+
+{% if not user.is_authenticated %}  <!--if donor or ngo is not logged in -->
+<section>
+    <div class="jumbotron text-center about-flower"
+        style="background-image: url({% static 'images/index/ngo-bg.jpg' %});">
+        <h3>As much as we need Donors, NGOs complete this team. Register and Add your needs. Let's be a part of this
+            change down the road!
+        </h3>
+        <a href="ngo">
+            <button class="btn btn-outline-danger" type="button">NGO Login</button>
+        </a>
+    </div>
+</section>
+<!-- NGO register section ends -->
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,335 @@
+<!-- extending the base and static files loading -->
+{% extends "base.html" %}
+{% load socialaccount %}
+{% load tz %}
+{% load static %}
+
+{% block title %}About{% endblock %}
+{% block email %}{{email}}{% endblock %}
+{% block since %}{{since|timezone:"Asia/Kolkata"}}{% endblock %}
+{% block amt %}{{amt}}{% endblock %}
+{% block content %}
+
+
+<!-- header section starts -->
+<div class="jumbotron text-center about" style="background-image: url({% static 'images/index/hand.jpg' %});">
+    <div class="container">
+        <h1>ABOUT</h1>
+        <h4>"Never doubt that a small group of thoughtful,<br>
+            committed citizens can change the world.<br>
+            Indeed, it's the only thing that ever has."<br>
+            Margaret Mead</h4>
+    </div>
+</div>
+<!-- header section ends -->
+
+
+<!-- mission, values and vision cards section starts-->
+<section class="mission-vision-section">
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="mission-vision-grids clearfix">
+                    <div class="grid">
+                        <div class="overlay"></div>
+                        <h3>Our mission</h3>
+                        <p>According to a belief, one who dies in Kashi attains moksha. Many elderly people either 
+                            come or are abandoned in the last stage of their life in the city. They can’t work for their living
+                             and mostly depend on daan received from tourists. They were the worst hit during 
+                             the COVID 19 phase when tourism sector had collapsed.
+                            
+                            </p>
+                    </div>
+                    <div class="grid">
+                        <div class="overlay"></div>
+                        <h3>Our vision</h3>
+                        <p>There are many unorganised ashrams and sarais that accommodate such people, which mostly depend on funds raised from the local community and tourists. 
+                            Our aim is to provide these people with something more than mere donations.
+                                We aim to connect these Ashrams and Rest Houses with prospective donors. 
+                                </p>
+                    </div>
+                    <div class="grid">
+                        <div class="overlay"></div>
+                        <h3>Our value</h3>
+                        <p> We also aim to provide these people with a source of employment suitable for their age. Through our Monitoring and Feedback system, we will analyse the whereabouts of the ashrams before adding them. 
+                            Any donor can know the complete amount raised for the work from us and we plan to follow a model similar to RTI.
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- mission, values and vision cards section starts-->
+
+<!-- team section starts -->
+<header class="header-design">
+    <div class="listar-map-button">
+        <div class="listar-map-button-text" style="display: inline-block; opacity: 1;">
+
+        </div>
+    </div>
+
+    <div class="footer-wave"></div>
+</header>
+
+<section class="mainbg">
+    <div class="container">
+
+        <span class="icon-map2">
+            <h2>OUR TEAM </h2>
+        </span>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 text-center mb-5 mt-5">
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!-- member details starts -->
+            <div class="col-sm-3 col-md-3 mt-10">
+                <div class="user-main">
+
+                    <div class="user-img">
+
+                        <img src="{% static 'images/team/profile-pic-surya.jpg' %}">
+
+                    </div>
+
+                    <div class="user-name">
+                        <div class="user-headline">
+                            <h3>Suryavardan S</h3>
+                            <span class="user-designation">Full Stack Developer</span>
+                            <div class="user_contact">
+                                <span><i aria-hidden="true" class="fa fa-phone"></i>970-2370-330</span>
+                                <span><i aria-hidden="true" class="fa fa-envelope"></i>suryavardan.s19@iiits.in</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user_social ul-li-block">
+                        <ul>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-github"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
+                        </ul>
+                        <div class="s2-share_btn text-center"><i class="fa fa-share-alt"></i></div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- member details ends -->
+
+            <!-- member details starts -->
+            <div class="col-sm-3 col-md-3 mt-10">
+                <div class="user-main">
+
+                    <div class="user-img">
+
+                        <img src="{% static 'images/team/profile-pic-anurag.jpg' %}">
+                    </div>
+
+                    <div class="user-name">
+                        <div class="user-headline">
+                            <h3>Anurag Kumar</h3>
+                            <span class="user-designation">Full Stack Developer</span>
+                            <div class="user_contact">
+                                <span><i aria-hidden="true" class="fa fa-phone"></i>725-0536-658</span>
+                                <span><i aria-hidden="true" class="fa fa-envelope"></i>anurag.k19@iiits.in</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user_social ul-li-block">
+                        <ul>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-github"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
+                        </ul>
+                        <div class="s2-share_btn text-center"><i class="fa fa-share-alt"></i></div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- member details ends -->
+
+            <!-- member details starts -->
+            <div class="col-sm-3 col-md-3 mt-10">
+                <div class="user-main">
+
+                    <div class="user-img">
+
+                        <img src="{% static 'images/team/profile-pic-himesh.jpg' %}">
+                    </div>
+
+                    <div class="user-name">
+                        <div class="user-headline">
+                            <h3>Himesh Kumar</h3>
+                            <span class="user-designation">Full Stack Developer</span>
+                            <div class="user_contact">
+                                <span><i aria-hidden="true" class="fa fa-phone"></i>729-4805-064</span>
+                                <span><i aria-hidden="true" class="fa fa-envelope"></i>himesh.k19@iiits.in</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user_social ul-li-block">
+                        <ul>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-github"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
+                        </ul>
+                        <div class="s2-share_btn text-center"><i class="fa fa-share-alt"></i></div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- member details ends -->
+
+            <!-- member details starts -->
+            <div class="col-sm-3 col-md-3 mt-10">
+                <div class="user-main">
+
+                    <div class="user-img">
+
+                        <img src="{% static 'images/team/profile-pic-shreyash.jpg' %}">
+                    </div>
+
+                    <div class="user-name">
+                        <div class="user-headline">
+                            <h3>Shreyash Mishra</h3>
+                            <span class="user-designation">Full Stack Developer</span>
+                            <div class="user_contact">
+                                <span><i aria-hidden="true" class="fa fa-phone"></i>620-1856-718</span>
+                                <span><i aria-hidden="true" class="fa fa-envelope"></i>shreyash.m19@iiits.in</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user_social ul-li-block">
+                        <ul>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-github"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
+                        </ul>
+                        <div class="s2-share_btn text-center"><i class="fa fa-share-alt"></i></div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- member details ends -->
+
+
+            <!-- member details starts -->
+            <div class="col-sm-3 col-md-3 mt-10">
+                <div class="user-main">
+
+                    <div class="user-img">
+
+                        <img src="{% static 'images/team/profile-pic-priyam.jpeg' %}">
+                    </div>
+
+                    <div class="user-name">
+                        <div class="user-headline">
+                            <h3>Priyam Bajpai</h3>
+                            <span class="user-designation">Full Stack Developer</span>
+                            <div class="user_contact">
+                                <span><i aria-hidden="true" class="fa fa-phone"></i>123-456-7890</span>
+                                <span><i aria-hidden="true" class="fa fa-envelope"></i>priyam.b19@iiits.in</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user_social ul-li-block">
+                        <ul>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-github"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
+                        </ul>
+                        <div class="s2-share_btn text-center"><i class="fa fa-share-alt"></i></div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- member details starts -->
+            <div class="col-sm-3 col-md-3 mt-10">
+                <div class="user-main">
+
+                    <div class="user-img">
+
+                        <img src="{% static 'images/team/profile-pic-swathi.jpeg' %}">
+                    </div>
+
+                    <div class="user-name">
+                        <div class="user-headline">
+                            <h3>Swathi Kasoju</h3>
+                            <span class="user-designation">Full Stack Developer</span>
+                            <div class="user_contact">
+                                <span><i aria-hidden="true" class="fa fa-phone"></i>123-4567-890</span>
+                                <span><i aria-hidden="true" class="fa fa-envelope"></i>swathi.k19@iiits.in</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user_social ul-li-block">
+                        <ul>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-github"></i></a></li>
+                            <li><a href="#"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
+                        </ul>
+                        <div class="s2-share_btn text-center"><i class="fa fa-share-alt"></i></div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- member details ends -->
+
+        </div>
+
+    </div>
+</section>
+<!-- team section ends -->
+
+<!-- gallary section starts -->
+<section>
+
+    <div class="container-fluid">
+        <div class="section-title text-center">
+            <h2>Gallery</h2>
+        </div>
+        <div class="d-flex flex-wrap justify-content-center">
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-1.jpg' %}">
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-2.jpg' %}">
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-3.jpg' %}">
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-4.jpg' %}">
+
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-5.webp' %}">
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-6.webp' %}">
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-7.webp' %}">
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-8.webp' %}">
+
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-9.jpg' %}">
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-10.jpg' %}">
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-11.jpg' %}">
+            <img class="b2w gallery" src="{% static 'images/index/instagram/img-12.jpg' %}">
+        </div>
+    </div>
+</section>
+
+<!-- gallary section ends -->
+
+{% endblock %}

@@ -1,0 +1,143 @@
+.register-photo {
+  background: linear-gradient(180deg, rgba(127,131,131,1) 0%, rgba(219,175,175,1) 26%) !important;
+    padding: 10vh 0;
+  }
+  
+  .register-photo .image-holder {
+    display: table-cell;
+    width: auto;
+    background: url(../images/index/target.jpg);
+    background-size: cover;
+  }
+  
+  .register-photo .form-container {
+    display: table;
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  }
+  
+  .register-photo form {
+    display: table-cell;
+    width: 400px;
+    background-color: #ffffff;
+    padding: 40px 60px;
+    color: #505e6c;
+  }
+  
+  @media (max-width:991px) {
+    .register-photo form {
+      padding: 40px;
+    }
+  }
+  
+  .register-photo form h2 {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+  
+  .register-photo form .form-control {
+    background: #f7f9fc;
+    border: none;
+    border-bottom: 1px solid #dfe7f1;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: inherit;
+    text-indent: 6px;
+    height: 40px;
+  }
+  
+  .register-photo form .form-check {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  
+  .register-photo form .btn-primary {
+    background: #48c010;
+    border: none;
+    border-radius: 4px;
+    padding: 11px;
+    box-shadow: none;
+    margin-top: 35px;
+    text-shadow: none;
+    outline: none !important;
+  }
+  .register-photo form .btn-danger {
+    background: #ca2d11;
+    border: none;
+    border-radius: 4px;
+    padding: 11px;
+    box-shadow: none;
+    margin-top: 35px;
+    text-shadow: none;
+    outline: none !important;
+  }
+  
+  .register-photo form .btn-primary:hover, .register-photo form .btn-primary:active {
+    background: #3beb70;
+  }
+  .register-photo form .btn-danger:hover, .register-photo form .btn-danger:active {
+    background: #ee4040;
+  }
+  
+  .register-photo form .btn-primary:active {
+    transform: translateY(1px);
+  }
+  
+  .register-photo form .already {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #6f7a85;
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  
+  .razor-form{
+    z-index: 2;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+  }
+  .razor-form form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  }
+  .register-photo .op-form {
+    opacity: 0.25;
+    z-index: -1;
+  }
+
+  .razor-form form input{
+    background-color: #cd211d !important;
+    font-family: sans-serif;
+    font-weight: 400;
+    border-radius:10px;
+    color: #fff;
+    text-decoration:none;
+    padding: 0.25em 0.75em;
+    min-width: 10ch;
+    min-height: 44px;
+    cursor:pointer;
+    transition: 0.3s ease-in-out;
+
+  }
+
+  .razor-form form input:hover{
+  background-color: #fc2803 !important;
+  transition: 0.3s ease-in;
+  }
+
+  .image-input {
+    height: 30vh !important;
+    align-items: center;
+  }
+  .image-input img {
+    height: 30vh !important;
+  }
